@@ -1,0 +1,71 @@
+﻿<!--
+	FILENAME	: MainWindow.xaml
+	PROJECT		: WMP - SetPaint Project
+	PROGRAMMERS	: Austin Che, Monira Sultana
+	DATE		: 2016/11/27
+	DESCRIPTION	: This is the xaml page for the SetPaint project.
+-->
+<Window x:Name="SetPaint" x:Class="SetPaint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SetPaint"
+        mc:Ignorable="d"
+        Title="SetPaint" Height="600" Width="800" Icon="logo.bmp">
+
+	<DockPanel>
+		<!-- The top menu bar options -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+                <MenuItem Header="_New" Name="newToolStripMenuItem" Click="newToolStripMenuItem_Click" />
+                <MenuItem Header="_Open" Click="open_click"/>
+                <MenuItem Header="_Save" Click="save_click"/>
+				<Separator/>
+				<MenuItem Header="_Exit" Name="exitToolStripMenuItem" Click="exitToolStripMenuItem_Click"/>
+			</MenuItem>
+			<MenuItem Header="_Edit">
+				<MenuItem Header="_Erase" x:Name="eraseToolStripMenuItem" Click="eraseToolStripMenuItem_Click" />
+			</MenuItem>
+			<MenuItem Header="_Modify">
+				<MenuItem Header="Line Thickness" Name="linkThicknessToolStripMenuItem" Click="linkThicknessToolStripMenuItem_Click" />
+				<MenuItem Header="Line Colour" Name="lineColorToolStripMenuItem" Click="lineColorToolStripMenuItem_Click" />
+				<MenuItem Header="Fill Colour">
+					<MenuItem Header="Transparent" Name="transparentToolStripMenuItem" Click="transparentToolStripMenuItem_Click" />
+					<MenuItem Header="Color" Name="fillToolStripMenuItem" Click="fillToolStripMenuItem_Click" />
+				</MenuItem>
+				<Separator/>
+			</MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="About SetPaint" Name="aboutToolStripMenuItem" Click="aboutToolStripMenuItem_Click" />
+            </MenuItem>
+		</Menu>
+
+		<!-- Source: This source is for the vertical line separators
+		stackoverflow.com/questions/4011571/a-vertical-seperator-control-in-a-menu-toolbar-stackpanel-etc-is-it-possib
+		-->
+		<Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Background="LightGray">
+			<RadioButton Name="rbttnLine" GroupName="DrawTool" Content="Line" Checked="rbttnLine_Checked" />
+			<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+			<RadioButton Name="rbttnRectangle" GroupName="DrawTool" Content="Rectangle" Checked="rbttnRectangle_Checked"/>
+			<Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+			<RadioButton Name="rbttnEllipse" GroupName="DrawTool" Content="Ellipses" Checked="rbttnEllipse_Checked"/>
+		</Menu>
+
+		<!-- Status Bar is at the bottom of the application -->
+		<StatusBar DockPanel.Dock="Bottom">
+			<StatusBarItem>
+				<TextBlock Name="lblMousePosition" Text="Mouse Position: " />
+			</StatusBarItem>
+		</StatusBar>
+
+		<!-- Here is the Canvas control for the drawing area -->
+		<Grid Name="canvasContainer">
+			<Canvas Name="DrawArea" MouseLeftButtonDown="DrawArea_MouseLeftButtonDown" 
+			MouseMove="DrawArea_MouseMove" MouseLeftButtonUp="DrawArea_MouseLeftButtonUp" MouseLeave="DrawArea_MouseLeave"/>
+		</Grid>
+
+	</DockPanel>
+	
+
+</Window>

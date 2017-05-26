@@ -1,0 +1,21 @@
+﻿<!--
+	FILENAME	: LineThicknessDialog.xaml
+	PROJECT		: WMP - SetPaint Project
+	PROGRAMMERS	: Austin Che, Monira Sultana
+	DATE		: 2016/11/27
+	DESCRIPTION	: This is the xaml page for the LineThicknessDialog.
+-->
+<Window x:Class="SetPaint.LineThicknessDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SetPaint"
+        mc:Ignorable="d"
+        Title="LineThicknessDialog" Height="80" Width="150" Icon="logo.bmp">
+	
+    <Grid>
+		<ComboBox x:Name="cBoxLineThickness" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="60"/>
+		<Button x:Name="bttnOK" Content="OK" HorizontalAlignment="Left" Margin="75,12,0,0" VerticalAlignment="Top" Width="50" Click="bttnOK_Click"/>
+	</Grid>
+</Window>
